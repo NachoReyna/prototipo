@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <title></title>
+  </head>
+	<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  <script>
+  $( document ).ready(function() {
+
+    $('#modalPrimerPaso').modal('show');
+    //Inicio del los objetos draggable
+    $( "#personaje1" ).draggable();
+    $( "#personaje2" ).draggable();
+    $( "#personaje3" ).draggable();
+    $( "#personaje4" ).draggable();
+    //se ocultan los objetos
+    $( "#personaje1" ).hide();
+    $( "#personaje2" ).hide();
+    $( "#personaje3" ).hide();
+    $( "#personaje4" ).hide();
+
+    $( "#puno" ).hide();
+    $( "#pdos" ).hide();
+    $( "#ptres" ).hide();
+  });
+  function pruebaSeleccionar(){
+    $('#modalPaisajes').modal('show')
+    //se ocultan los objetos
+    $( "#personaje1" ).hide();
+    $( "#personaje2" ).hide();
+    $( "#personaje3" ).hide();
+    $( "#personaje4" ).hide();
+    //Extraccion del valor de los checkbox
+    var checar = $('#checkbox-nested-1').prop('checked');
+    var checar2 = $('#checkbox-nested-2').prop('checked');
+    var checar3 = $('#checkbox-nested-3').prop('checked');
+    var checar4 = $('#checkbox-nested-4').prop('checked');
+    //Condicionales al seleccionar los elementos
+    if (checar==true) {
+      $( "#personaje1" ).show();
+    }
+    if (checar2==true) {
+      //var personaje2 = '<img src="https://supercurioso.com/wp-content/uploads/2017/12/610-datos-fascinantes-sobre-los-personajes-de-Mario.jpg" alt="" width="30%" >';
+      //$('#paso2').append(personaje2);
+      //console.log('personaje 2');
+      $( "#personaje2" ).show();
+    }
+    if (checar3==true) {
+      //var personaje3 = '<img src="https://supercurioso.com/wp-content/uploads/2017/12/810-datos-fascinantes-sobre-los-personajes-de-Mario.jpg" alt="" width="30%" >';
+      //$('#paso2').append(personaje3);
+      //console.log('personaje 3');
+      $( "#personaje3" ).show();
+    }
+    if (checar4==true) {
+      //var personaje4 = '<img src="https://supercurioso.com/wp-content/uploads/2017/12/910-datos-fascinantes-sobre-los-personajes-de-Mario.jpg" alt="" width="30%" >';
+      //$('#paso2').append(personaje4);
+      //console.log('personaje 4');
+      $( "#personaje4" ).show();
+    }
+  }
+function montrarMPersonajes(){
+  $('#exampleModal').modal('show');
+}
+
+function montrarMPaisajes(){
+  $( "#puno" ).hide();
+  $( "#pdos" ).hide();
+  $( "#ptres" ).hide();
+  var paisaje = $('#paisaje1').prop('checked');
+  var paisaje2 = $('#paisaje2').prop('checked');
+  var paisaje3 = $('#paisaje3').prop('checked');
+
+  if (paisaje==true) {
+    $( "#puno" ).show();
+  }
+  if (paisaje2==true) {
+    $( "#pdos" ).show();
+  }
+  if (paisaje3==true) {
+    $( "#ptres" ).show();
+  }
+}
+
+
+  </script>
+  <body>
+    <!-- Boton que ejecuta el modal -->
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalPrimerPaso">
+    Inicia
+    </button>
+      <div id="personaje1" class="ui-widget-content">
+        <img src="https://supercurioso.com/wp-content/uploads/2017/12/710-datos-fascinantes-sobre-los-personajes-de-Mario.jpg" alt="" width="30%" >
+      </div>
+      <div id="personaje2" class="ui-widget-content">
+        <img src="https://supercurioso.com/wp-content/uploads/2017/12/610-datos-fascinantes-sobre-los-personajes-de-Mario.jpg" alt="" width="30%" >
+      </div>
+      <div id="personaje3" class="ui-widget-content">
+        <img src="https://supercurioso.com/wp-content/uploads/2017/12/810-datos-fascinantes-sobre-los-personajes-de-Mario.jpg" alt="" width="30%" >
+      </div>
+      <div id="personaje4" class="ui-widget-content">
+        <img src="https://supercurioso.com/wp-content/uploads/2017/12/910-datos-fascinantes-sobre-los-personajes-de-Mario.jpg" alt="" width="30%" >
+      </div>
+
+      <div id="puno" class="">
+        <img src="img/funo.jpg" alt="" width="30%" >
+      </div>
+      <div id="pdos" class="">
+        <img src="img/fdos.jpg" alt="" width="30%" >
+      </div>
+      <div id="ptres" class="">
+        <img src="img/ftres.jpg" alt="" width="30%" >
+      </div>
+      <!--Modal donde se muestra informacion-->
+      <div class="modal fade show" id="modalPrimerPaso" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Bienvenido a arma tu paisaje</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <div class="" align="center">
+                Da click en siguiente para empezar a armar tu paisaje
+              </div>
+            </div>
+            <div class="modal-footer">
+              <!--<button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>-->
+              <button type="button" onclick="montrarMPersonajes();" data-dismiss="modal" class="btn btn-success">Siguiente</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    <!--Cierre donde se selecciona el paisaje-->
+    <!-- Modal donde se nuestran los personajes -->
+    <div class="modal fade show" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Selecciona un personaje y despues da click en "Aceptar"</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <div class="widget" id="paso1">
+                <label for="checkbox-nested-1">Personaje 1
+                  <input type="checkbox" name="personaje1" id="checkbox-nested-1">
+                  <img src="https://supercurioso.com/wp-content/uploads/2017/12/710-datos-fascinantes-sobre-los-personajes-de-Mario.jpg" alt="" width="100px">
+                </label>
+                <label for="checkbox-nested-2">Personaje 2
+                  <input type="checkbox" name="personaje2" id="checkbox-nested-2">
+                  <img src="https://supercurioso.com/wp-content/uploads/2017/12/610-datos-fascinantes-sobre-los-personajes-de-Mario.jpg" alt="" width="100px">
+                </label>
+                <label for="checkbox-nested-3">Personaje 3
+                  <input type="checkbox" name="checkbox-nested-3" id="checkbox-nested-3">
+                  <img src="https://supercurioso.com/wp-content/uploads/2017/12/810-datos-fascinantes-sobre-los-personajes-de-Mario.jpg" alt="" width="100px">
+                </label>
+                <label for="checkbox-nested-4">Personaje 4
+                  <input type="checkbox" name="checkbox-nested-4" id="checkbox-nested-4">
+                  <img src="https://supercurioso.com/wp-content/uploads/2017/12/910-datos-fascinantes-sobre-los-personajes-de-Mario.jpg" alt="" width="100px">
+                </label>
+                <br>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" onclick="pruebaSeleccionar();" data-dismiss="modal" class="btn btn-primary">Aceptar</button>
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--Modal donde se selecciona el paisaje-->
+    <div class="modal fade show" id="modalPaisajes" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Ahora selecciona el fondo que desees</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <div class="widget" id="paso1">
+                <label for="checkbox-nested-11">paisaje 1
+                  <input type="radio" name="personaje1" id="paisaje1">
+                  <img src="img/funo.jpg" alt="" width="30%" >
+                </label>
+                <label for="checkbox-nested-11">paisaje 2
+                  <input type="radio" name="personaje1" id="paisaje2">
+                  <img src="img/fdos.jpg" alt="" width="30%" >
+                </label>
+                <label for="checkbox-nested-11">paisaje 3
+                  <input type="radio" name="personaje1" id="paisaje3">
+                  <img src="img/ftres.jpg" alt="" width="30%" >
+                </label>
+                <br>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <!--<button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>-->
+            <button type="button" onclick="montrarMPaisajes();" data-dismiss="modal" class="btn btn-success">Aceptar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--Cierre Modal donde se selecciona el paisaje-->
+    <div class="" id="paso2">
+    </div>
+  </body>
+  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</html>
